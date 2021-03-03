@@ -59,10 +59,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'learning_log.urls'
 
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,7 +132,6 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'users:login'
 
 # Heroku settings.
-import os
 import django_heroku
 django_heroku.settings(locals())
 
